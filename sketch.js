@@ -1,86 +1,34 @@
-deixe palavra ;
+let palavra;
 
+function setup() {
+  createCanvas(400, 400);
 
-configuração de função () {
-
-criarCanvas (400, 400); 
-
-
-
-palavra = palavraAleatoria ();
-
+  palavra = palavraAleatoria();
 }
 
-
-
-
-
-função palavraAleatoria (){
-
-let palavras = [ "Caminhante", "Caminho", "Caminha"];
-
-
-
-retornar aleatório (palavras );
-
+function palavraAleatoria(){
+  let palavras = ["Caminhante", "Caminho", "Caminha"];
+  return random(palavras);
 }
 
+function inicializaCores() {
 
-
-240
-
-:
-
-:
-
-função inicializaCores () {
-
-
-
-
-
-preencher ("preto");
-
-
-
-
-
+  background("white");
+  fill("black");
+  textSize(64);
+  textAlign(CENTER, CENTER);
 }
 
-
-
-fundo ("branco" );
-
-tamanho do texto (64);
-
-textAlign (CENTRO CENTRO );
-
-function palavraParcial (mínimo, máximo ) {
-
-
-
-deixe quantidade minimo maximo, 1 = mapa (mouseX palavra length );
-
-deixe parcial = palavra substring(0, quantidade );
-
-
-
-
-
+function palavraParcial(minimo, maximo) {
+  let quantidade = map(mouseX, minimo, maximo, 1, palavra.length);
+  let parcial = palavra.substring(0, quantidade);
+  return parcial;
 }
 
+function draw() {
 
+  inicializaCores();
 
-retornar parcial;
-
-função draw () {
-
-inicializaCores ();
-
-
-deixe texto = largura ); palavraParcial (0,
-
-
-texto (texto, 200, 200);
-
- }
+  let texto = palavraParcial(0, width);
+  text(texto, 200, 200);
+}
